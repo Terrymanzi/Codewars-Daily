@@ -27,16 +27,18 @@ R = Newton
 
 function calcResultantForce(force1, force2, theta) {
     //converting from radians to degrees
-    let angle = Math.cos(theta * (180 / Math.PI))
-    // finding the resultant force
-    let rForce = Math.sqrt(force1 + force2 + (2*force1*force2*angle));
+    let angleConverted = theta * (Math.PI/180);
+    // finding the resultant force = sqrt(f1^2 + f2^2 + 2*f1*f2*cos(theta))
+    let rForce = Math.sqrt((force1**2) + (force2**2) + (2*force1*force2*Math.cos(angleConverted)));
     //finding the angle rForce makes with force1
-    let rAngle = Math.atan((force2*(Math.sin(theta))) / (force1 + force2* angle));
+    let rAngle = Math.atan((force2*Math.sin(angleConverted)) / (force1 + force2 * Math.cos(angleConverted)));
+    //converting back angle to radians
+    rAngle = rAngle * (180/Math.PI);
     //creating the array
     const arraySolution = [rForce,rAngle];
     //returning the array of results
     return arraySolution;
 }
 //calling the function
-const result = calcResultantForce(2,1,60);
+const result = calcResultantForce(20,10,120);
 console.log(result);
