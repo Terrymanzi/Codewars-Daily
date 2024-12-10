@@ -26,7 +26,7 @@ R = Newton
 //SOLUTION
 
 function calcResultantForce(force1, force2, theta) {
-    //converting from radians to degrees
+    //converting from degrees to radians
     let angleConverted = theta * (Math.PI/180);
     // finding the resultant force = sqrt(f1^2 + f2^2 + 2*f1*f2*cos(theta))
     let rForce = Math.sqrt((force1**2) + (force2**2) + (2*force1*force2*Math.cos(angleConverted)));
