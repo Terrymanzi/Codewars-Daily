@@ -29,7 +29,7 @@ function dupl(arr){
     let str = arr.toString();
     console.log(str);
 
-    //removing the consecutive duplicates byu iteration
+    //removing the consecutive duplicates by iteration
     let prevChar = '';
     let result ='';
 
