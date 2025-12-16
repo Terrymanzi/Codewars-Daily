@@ -25,6 +25,13 @@ function mostMoney(students) {
       return prev;
     }
   });
-  console.log(max.name);
-  //   return max.name
+
+  let allSame = newStudentData.every(
+    (student) => student.total === newStudentData[0].total
+  );
+  if (allSame) {
+    return "all";
+  } else {
+    return max.name;
+  }
 }
