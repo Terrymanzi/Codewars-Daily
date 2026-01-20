@@ -1,16 +1,18 @@
 function sumUpNumbers(arr) {
-  let sum = 0;
+  // your code here
+  let newArr = [];
+  console.log(arr);
+  //     return '';
+  for (let item of arr) {
+    //     if(item.contains(".")){
+    //     console.log()
+    //     }
+    console.log(item);
+    console.log(item.lastIndexOf("."));
 
-  for (let str of arr) {
-    let numStr = str;
-    if (str.includes(",") && str.lastIndexOf(",") > str.lastIndexOf(".")) {
-      numStr = numStr.replace(/\./g, "");
-      numStr = numStr.replace(",", ".");
-    } else {
-      numStr = numStr.replace(/,/g, "");
+    //check separator
+    if (item.lastIndexOf(".") === -1) {
+      //do some transformations
     }
-
-    sum += Number(numStr);
   }
-  return sum;
 }
