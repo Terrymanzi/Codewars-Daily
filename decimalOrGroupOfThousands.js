@@ -1,34 +1,43 @@
 function sumUpNumbers(arr) {
-  // your code here
   let newArr = [];
+
   for (let item of arr) {
-    //detect separator format
-    if (item[item.length - 3] === ".") {
-      console.log("US");
-      console.log(item);
+    let hasComma = item.includes(",");
+    let hasDot = item.includes(".");
 
-      //normalize separators
-      let newItem = item.replace(/,/g, "");
-      console.log(newItem);
-      newArr.push(Number(newItem));
-    } else {
-      console.log("UK");
-      console.log(item);
+    // case 1: both separators
+    if (hasComma && hasDot) {
+      if (item.lastIndexOf(".") > item.lastIndexOf(",")) {
+        // US
+        newArr.push(Number(item.replace(/,/g, "")));
+      } else {
+        // EU
+        newArr.push(Number(item.replace(/\./g, "").replace(/,/g, ".")));
+      }
+    }
 
-      //normaliza separators
-      let newItem = item.replace(/\./g, "").replace(/,/g, ".");
-      console.log(newItem);
-      newArr.push(Number(newItem));
+    // case 2: only comma
+    else if (hasComma) {
+      const commaCount = item.split(",").length - 1;
+      let value;
+      if (commaCount > 1) {
+        value = item.replace(/,/g, "");
+      } else {
+        value = item.replace(",", ".");
+      }
+      newArr.push(Number(value));
+    }
+
+    // case 3: plain number or dot decimal
+    else {
+      newArr.push(Number(item));
     }
   }
-  console.log(newArr);
-  let sum = newArr.reduce((accumulator, current) => {
-    return accumulator + current;
-  });
 
-  console.log(sum);
+  let sum = newArr.reduce((accumulator, current) => accumulator + current, 0);
+
   return sum.toLocaleString("en-US", {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
 }
