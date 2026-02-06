@@ -43,12 +43,17 @@ function sepStr(str) {
   let result = [];
   console.log(str);
   console.log(arr);
-  for (let i = 0; i <= arr.length; i++) {
-    for (let j = 0; j <= arr[i]; j++) {
-      console.log(j);
+  //     return [];
+  for (let i in arr) {
+    result.push(arr[i].split(""));
+  }
+  //   console.log(result);
+  for (let i in result) {
+    for (let j in result[i]) {
+      console.log("iteration:", `${j}:`, result[j]);
     }
   }
-  //     return [];
+  return result;
 }
 
 // Sample Tests
