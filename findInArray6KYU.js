@@ -54,5 +54,5 @@ let trueIfEven = function (value, index) {
 };
 
 //sample tests
-// console.log(findInArray([], trueIfEven)); //ouput: -1
+console.log(findInArray([], trueIfEven)); //ouput: -1
 console.log(findInArray([1, 3, 5, 6, 7], trueIfEven)); //ouput: 3
