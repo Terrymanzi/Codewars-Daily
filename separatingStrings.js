@@ -43,21 +43,23 @@ function sepStr(str) {
   let result = [];
   if (arr.length === 0) return result; // test case
   let maxRowLen = Math.max(...arr.map((str) => str.length));
-  console.log(str);
-  console.log(arr);
+  console.log("max row length:", maxRowLen);
+  console.log("original words:", str);
+  console.log("array created:", arr);
   //     return [];
-  for (let i in arr) {
-    result.push(arr[i].split(""));
-  }
-  //   console.log(result);
-  for (let i in result) {
-    for (let j in result[i]) {
-      console.log("iteration:", `${j}:`, result[j]);
+  for (let i = 0; i < maxRowLen; i++) {
+    let row = [];
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j][i] !== undefined) {
+        row.push(arr[j][i]);
+      } else {
+        row.push("");
+      }
     }
+    result.push(row);
   }
 
   console.log("solution", result);
-  console.log("max row length", maxRowLen);
   return result;
 }
 
