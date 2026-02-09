@@ -43,8 +43,8 @@ function sepStr(str) {
   let result = [];
   if (arr.length === 0) return result; // test case
   let maxRowLen = Math.max(...arr.map((str) => str.length));
-  console.log("max row length:", maxRowLen);
-  console.log("original words:", str);
+  // console.log("max row length:", maxRowLen);
+  // console.log("original words:", str);
   console.log("array created:", arr);
   //     return [];
   for (let i = 0; i < maxRowLen; i++) {
