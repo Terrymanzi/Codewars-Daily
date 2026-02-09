@@ -41,6 +41,8 @@ sepStr("The Mitochondria is the powerhouse of the cell")
 function sepStr(str) {
   let arr = str.split(" ");
   let result = [];
+  if (arr.length === 0) return result; // test case
+  let maxRowLen = Math.max(...arr.map((str) => str.length));
   console.log(str);
   console.log(arr);
   //     return [];
@@ -53,6 +55,9 @@ function sepStr(str) {
       console.log("iteration:", `${j}:`, result[j]);
     }
   }
+
+  console.log("solution", result);
+  console.log("max row length", maxRowLen);
   return result;
 }
 
