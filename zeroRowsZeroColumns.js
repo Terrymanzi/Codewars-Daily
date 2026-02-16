@@ -18,5 +18,7 @@ function countZeroRowsAndColumns(arr1, arr2) {
   const zeroRows = rowZero.filter(Boolean).length;
   const zeroCols = colZero.filter(Boolean).length;
 
-  return zeroRows + [zeroCols.length];
+  return zeroRows;
 }
+
+// refactoring logic
